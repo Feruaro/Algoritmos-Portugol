@@ -1,0 +1,74 @@
+
+
+programa {
+	
+    funcao inicio() {
+        
+	cadeia nome
+	real peso, altura, imc
+	caracter sexo
+	inteiro cintura=0
+
+	escreva ("Olá, qual seu nome?")
+	leia (nome)
+	escreva (nome, ",para calcular seu Índice de Massa Corporal informe seu peso e altura!", "\n\n" ,"Primeiro seu peso:")
+	leia (peso)
+	escreva ("E agora sua altura:")
+	leia (altura)
+	  
+	// cálculo do imc
+	imc = peso/(altura*altura)
+	
+	// classificação de acordo com o cálculo do imc
+	se (imc<18.5) {
+	    escreva ("Você está abaixo do peso. Necessário que consulte um médico!", "\n\n" )
+	}
+	senao {
+	    	se ((imc>=18.5) e (imc<=24.9)) {
+	        	escreva ("Você está com o peso ideal. Parabéns", "\n\n")
+            	}
+	    	se ((imc>=25) e (imc<=29.9)) {
+			escreva ("Você está com sobrepeso. Necessário que consulte um médico!", "\n\n")
+	    	}
+	    	se ((imc>=30) e (imc<=34.9)) {
+		    	escreva ("Você está com obesidade grau I. Necessário que consulte um médico!", "\n\n")
+		}
+		se (imc>=35 e imc<=39.9) {
+		    	escreva ("Você está com obesidade grau II. Necessário que consulte um médico!", "\n\n")
+		}
+		se (imc>=40) {
+		    	escreva ("Você está com obesidade grau III. Necessário que consulte um médico!", "\n\n")
+		}
+	}
+		    
+	escreva (nome, ",importante também avaliar seu risco cardíaco.", "\n\n", "É simples! Apenas responda as seguintes perguntas:\n")
+        escreva ("Primeiro, qual seu sexo?  (F/M)")
+  	leia (sexo)
+        escreva ("Agora, com auxílio de uma fita métrica, informe a circunferência da sua cintura em cm:")
+        leia (cintura)
+ 
+        // classificação do risco de acordo com a circunferência em cm
+        se (sexo == 'M' ou sexo == 'm'){
+        	se (cintura<=94) {
+             	   	escreva("Baixo risco!")
+             	}
+       	} senao {
+             	se (cintura>94 e cintura<=102){
+             		escreva("Risco moderado. Cuidado!")
+             	}
+             	se (cintura>102) {
+             		escreva("Alto risco")
+             	}     	
+        } senao {
+               se (cintura<=80) {
+               		escreva("Baixo risco!")
+               }
+               se (cintura>80 e cintura<=88) {
+               		escreva("Risco moderado. Cuidado!")
+               }
+               se (cintura>88) {
+               		escreva("Alto risco. Cuidado!")
+               }               
+       	}            
+    }
+}

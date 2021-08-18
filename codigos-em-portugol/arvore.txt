@@ -1,0 +1,25 @@
+programa {
+	
+	funcao inicio() {
+		inteiro a = 0, b = 9
+           	cadeia texto = "", espacos = "" 
+          
+          	// 10 linhas de copa 
+          	enquanto(b>0) {
+              		a = 0
+              		espacos = ""
+              		enquanto(a<b) {
+                  		espacos =  espacos + " "
+                  		a++                 
+              		}
+              		escreva(espacos, "8", texto, "\n")                                      
+              		texto = texto + "88"          
+              		b--             
+          	}  
+               
+          	// 3 lihas de tronco 
+          	para(b=10;b<=12;b++){
+          		escreva("        XXX\n")
+          	}	
+	}
+}

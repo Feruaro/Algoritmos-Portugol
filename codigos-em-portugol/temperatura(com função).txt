@@ -1,0 +1,89 @@
+programa {   	
+
+    funcao inicio(){	
+           
+        cadeia tempDe = "", tempPara = ""   		
+    	inteiro temperatura  =  menu() // função
+	real valor, temp = 0.0
+
+    	se(temperatura  == 1){
+    	    tempDe = "Celsius"
+    	    tempPara = "Fahrenheit"
+    	}
+    	se(temperatura  == 2){
+       	    tempDe = "Fahrenheit"
+    	    tempPara = "Celsius"
+    	}
+    	se(temperatura  == 3){
+       	    tempDe = "Celsius"
+    	    tempPara = "Kelvin"
+    	}
+    	se(temperatura  == 4){
+       	    tempDe = "Kelvin"
+    	    tempPara = "Celsius"
+    	}
+    	se(temperatura  == 5){
+       	    tempDe = "Kelvin"
+    	    tempPara = "Fahrenheit"
+    	}
+    	se(temperatura  == 6){
+       	    tempDe = "Kelvin"
+    	    tempPara = "Celsius"
+    	}  		
+     	
+    	escreva("Digite sua temperatura  em ",tempDe,": ")
+    	leia(valor)
+    				
+    	se(temperatura  == 1){
+    	    temp = converteCelsiusFahrenheit(valor)
+    	}
+    	se(temperatura  == 2){
+            temp = converteFahrenheitCelsius(valor)
+    	}
+    	se(temperatura  == 3){
+    	    temp = converteCelsiusKelvin(valor)
+    	}
+    	se(temperatura  == 4){
+    	    temp = converteKelvinCelsius(valor)
+    	}
+    	se(temperatura  == 5){
+    	    temp = converteKelvinFahrenheit(valor) 
+    	}
+    	se(temperatura  == 6){
+    	    temp = converteFahrenheitKelvin(valor)
+    	}
+    	escreva("Sua  temperatura  em ",tempPara," é: ", temp)    		
+    }
+    funcao inteiro menu() {
+        inteiro opcao  =  0
+    	escreva("Digite 1 para converter de CELSIUS  para FAHRENHEIT\n")
+    	escreva("Digite 2 para converter de FAHRENHEIT  para CELCIUS\n")
+    	escreva("Digite 3 para converter de CELSIUS para KELVIN\n")
+    	escreva("Digite 4 para converter de KELVIN para CELSIUS:\n")
+    	escreva("Digite 5 para converter de KELVIN para FAHRENHEIT:\n")
+    	escreva("Digite 6 para converter de FAHRENHEIT para KELVIN:\n")
+    	leia(opcao)
+    	retorne opcao
+    }
+    funcao real converteCelsiusFahrenheit(real entrada) {
+    	retorne (entrada * 1.8) + 32   		
+    }
+    funcao real converteFahrenheitCelsius(real entrada) {
+    	retorne (entrada - 32) / 1.8  		
+    }
+    funcao real converteCelsiusKelvin(real entrada) {  		
+    	retorne entrada + 273.15
+    }
+    funcao real converteKelvinCelsius(real entrada) {
+    	retorne entrada - 273.15
+    }
+    funcao real converteKelvinFahrenheit(real entrada) {
+    	// (K - C) depois (C - F) 
+   	retorne converteCelsiusFahrenheit (converteKelvinCelsius(entrada)) 
+    }
+    funcao real converteFahrenheitKelvin(real entrada) {
+    	// (F - C) depois (C - K)
+    	retorne converteCelsiusKelvin (converteFahrenheitCelsius(entrada)) 
+    }
+}   	
+

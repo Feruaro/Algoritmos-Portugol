@@ -1,0 +1,107 @@
+programa {
+    /*
+    O algritmo deve perguntar sobre o sintona e o tempo que o mesmo se manifesta. As regras para sugerir a ida ao médico/posto de saúde são as seguintes:
+- apresentar febre e tosse seca por mais de 2 dias (os dois sintomas)
+- apresentar febre por mais de 3 dias
+- cansaço por mais de 2 dias
+- falta de ar (idicação de ida imediata, independente dos demais sintomas)
+- perda de olfato e/ou paladar ( idicação de ida imediata, independente dos demais sintomas)
+- Contato com alguém suspeito/confirmado do Covid-19 a menos de 14 dias
+- Retorno de viagem a regiões com alto índice de infecção a menos de 14 dias
+- Exceto nos casos em que a indicação de ida imediata ao atendimento médico, a combinação de 2 ou mais sintomas, mesmo que com menos dias do que os indicados para o sintoma isolado, é necessário a indicação de ida ao atentimento médico
+- É considerado febre temperatura corporal a partir de 38ºC
+
+O algortimo além de indicar a ida ao atendimento médico, deve descrever quais os sintomas que levou o algoritmo a fazer a indicação.
+*/
+    funcao inicio() {
+        
+        caracter tosse, febre, cansaco, faltaAr, olfato, contato, viagem
+        inteiro diasFebre = 0, diasTosse = 0, qtdSintomas = 0
+        real temperatura = 0.0
+        cadeia sintomas = ""
+       
+        escreva("você está com falta de ar?")
+        leia(faltaAr)
+        
+	se(faltaAr == 's') {
+            faltaAr = 'S'
+        }
+        se (faltaAr == 'S') {
+            escreva("Procure atendimento médico com urgencia")
+        } senao {
+            escreva("Você está com falta de olfato e/ou paladar?")
+            leia(olfato)
+            se(olfato == 's'){
+                olfato = 'S'
+            }
+            se (olfato == 'S') {
+                escreva("Procure atendimento médico com urgencia")
+            } senao {
+                escreva("você tem febre?")
+                leia(febre)
+                se(febre == 's') {
+                    febre = 'S'
+                }
+                se (febre == 'S') {
+                    escreva("qual a temperatura corporal?")
+                    leia(temperatura)
+                    escreva("por quantos dias?")
+                    leia(diasFebre)
+                }
+                
+		escreva("você tosse seca?")
+                leia(tosse)
+                se(tosse == 's') {
+                    tosse = 'S'
+                }
+                se (tosse == 'S') {
+                    escreva("por quantos dias?")
+                    leia(diasTosse)
+                }
+           
+                escreva("você está com cansaço excessivo por mais de 2 dias?")
+                leia(cansaco)
+                se (cansaco == 's') {
+                    cansaco = 'S'
+                }
+           
+                escreva("você teve contato com alguém suspeito/confirmado com Covid-19?")
+                leia(contato)
+                se (contato == 's') {
+                    contato = 'S'
+                }
+                escreva("você retornou de viagem de uma região com alto indice de casos/contaminados?")
+                leia(viagem)
+                se(viagem == 's') {
+                    viagem = 'S'
+                }               
+                se(febre == 'S' e temperatura >= 38 e (diasFebre>=3)) {
+                    qtdSintomas = qtdSintomas + 1
+                    sintomas = sintomas + "Febre por mais de 3 dias \n"
+                }
+                se(febre == 'S' e tosse == 'S' e diasTosse >=2) {
+                    qtdSintomas = qtdSintomas + 1
+                    sintomas = sintomas + "Febre e tosse seca por 2 dias ou mais\n"
+                }
+                se(cansaco == 'S') {
+                    qtdSintomas = qtdSintomas + 1
+                    sintomas = sintomas + "cansaço por 2 dias ou mais\n"
+                }
+                se(contato == 'S') {
+                    qtdSintomas = qtdSintomas + 1
+                    sintomas = sintomas + "contato com susteito/Contaminado a menos de 14 dias\n"
+                }
+                se(viagem == 'S') {
+                    qtdSintomas = qtdSintomas + 1
+                    sintomas = sintomas + "viagem a região com contágio"
+                }
+                limpa()
+                se (qtdSintomas >= 2) {
+                    escreva("seria aconselhável você procurar atendimente médico")
+                    escreva("\n")
+                    escreva(sintomas)
+                }
+            }
+        }
+    }
+}

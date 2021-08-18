@@ -1,0 +1,105 @@
+programa {
+	
+	funcao inicio() {
+		
+		real precoCarne = 20.5, precoFrango = 18.0, precoCoracao = 22.0, precoTJM = 25.5, preco = 0.0
+		real precoRefrigerante = 5.5, precoAgua = 3.0, precoSuco = 5.0, precoCerveja = 7.5, precoBebida = 0.0 
+		cadeia nome, textoSabor = "sem sabor", textoBebida = ""
+		inteiro sabor, qntd, qntdBebida = 0, saborBebida
+		caracter ervilha, bebida
+		
+		escreva("Boa Noite! \n")
+		escreva("Qual o seu nome? ")		
+		leia(nome)
+		escreva("\nEscolha o sabor do teu Xis:\n")
+		escreva("1. Carne \n2. Frango\n3. Coração\n4. Tudo junto Misturado\n\n")		
+		leia(sabor)
+
+		se (sabor == 1) {
+			textoSabor = "CARNE"
+			preco = precoCarne
+		}
+		se (sabor == 2) {
+			textoSabor = "FRANGO"
+			preco = precoFrango
+		}
+		se (sabor == 3) {
+			textoSabor = "CORAÇÃO"
+			preco = precoCoracao
+		}
+		se (sabor == 4) {
+			textoSabor = "TUDO JUNTO MISTURADO"
+			preco = precoTJM
+		}
+		
+		escreva("quantos xises ",textoSabor," você quer? ") 
+		leia(qntd)
+		escreva("com ervilhas? (S/N) ") 		
+		leia(ervilha)
+		limpa()
+		escreva("Gostaria de alguma bebida? (S/N) ") 
+		leia(bebida)
+		limpa()
+
+		se (bebida == 'S' ou bebida == 's') {
+			escreva("Escolha a tua bebida:\n")
+		     	escreva("1. Refrigerante\n2. Água\n3. Suco\n4. Cerveja\n\n")
+		     	leia(saborBebida)
+		     	escreva("Quantas bebidas?")
+		     	leia(qntdBebida)
+		     	se (saborBebida == 1) {
+		     		precoBebida = precoRefrigerante
+		     		textoBebida = qntdBebida+" REFRIGERANTE" 
+		     	}
+		     	se (saborBebida == 2) {
+		     		precoBebida = precoAgua
+		     		textoBebida = qntdBebida+" ÁGUA" 
+		     	}
+		     	se (saborBebida == 3) {
+		     		precoBebida = precoSuco
+		     		textoBebida = qntdBebida+" SUCO" 
+		     	}
+		     	se (saborBebida == 4) {
+		     		precoBebida = precoCerveja
+		     		textoBebida = qntdBebida+" CERVEJA" 
+		     	}
+		} senao {
+			textoBebida = " SEM BEBIDA "
+			precoBebida = 0.0			
+		}
+
+		escreva("Confirmação do Pedido\n")
+		escreva("---------------------\n\n")
+		escreva(qntd+" X ",textoSabor)
+		/*
+		se (ervilha == 'N') {
+			escreva(" SEM ERVILHA ")
+		} senao {
+			se (ervilha == 'n') {
+				escreva(" SEM ERVILHA ")
+			} senao {
+				escreva(" COMPLETAÇO ")
+			}
+		}
+
+		se (ervilha == 'n') {
+			ervilha = 'N'
+		}
+		se (ervilha == 'N') {
+			escreva(" SEM ERVILHA ")
+		} senao {
+			escreva(" COMPLETAÇO ")
+		}
+		*/
+		se (ervilha == 'N' ou ervilha == 'n') {
+			escreva(" SEM ERVILHA\n")
+		} senao {
+			escreva(" COMPLETAÇO\n")
+		}
+		
+		escreva(textoBebida, "\n")				
+		escreva("Total: ", (qntd * preco) + (qntdBebida * precoBebida),"\n")
+		escreva("Para: ", nome)		
+		
+	}
+}

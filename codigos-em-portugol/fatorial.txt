@@ -1,0 +1,14 @@
+programa {
+	// 5! = 5 * 4 * 3 * 2 * 1 
+	funcao inicio() {
+		inteiro numero, fatorial = 1
+
+		escreva("Informe o número que deseja fatorar: ")
+		leia(numero)
+		limpa()
+		para(inteiro i=2; i<=numero; i++){
+			fatorial *= i
+		}		
+		escreva("O fatorial de ", numero, " é ", fatorial)
+	}
+}

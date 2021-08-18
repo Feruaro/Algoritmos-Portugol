@@ -1,0 +1,36 @@
+programa {
+	
+    inclua biblioteca Util
+    
+    funcao inicio() {
+        /*escreva("XXXXXXXXXX\n")
+	  escreva("XX      XX\n")
+	  escreva("X X    X X\n")
+	  escreva("X  X  X  X\n")
+	  escreva("X   XX   X\n")
+	  escreva("X  X  X  X\n")
+	  escreva("X X    X X\n")
+	  escreva("XX      XX\n")
+	  escreva("XXXXXXXXXX\n")*/
+	        
+          inteiro a = 0, b = 0, incremento = 1
+          cadeia espacos = ""
+            
+          escreva("XXXXXXXXXX\n")
+          enquanto(b>=0) {
+              a = 0
+              espacos = ""
+              enquanto(a < b) {
+                  espacos =  espacos + " "
+                  a++                   
+              }
+              escreva("X", espacos,"X","\n")           
+              Util.aguarde(100)              
+              b = b + incremento
+              se(b == 3) {
+                  incremento = incremento * -1
+              }
+          }
+          escreva("XXXXXXXXXX")
+      }
+}

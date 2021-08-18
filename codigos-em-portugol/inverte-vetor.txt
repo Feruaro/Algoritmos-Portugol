@@ -1,0 +1,30 @@
+programa {
+    
+    inclua biblioteca Util
+    
+    funcao inicio(){
+    	
+        inteiro valores[10] = {1,2,3,4,5,6,7,8,9,10}, reserva
+
+        imprimeVetor(valores)
+        escreva("\n\n")
+        inverteVetor(valores)        
+        imprimeVetor(valores)
+       
+    }
+    funcao vazio imprimeVetor(inteiro vetor[] ) {
+        para ( inteiro i = 0; i < Util.numero_elementos(vetor); i++) {
+            escreva("[",i,"] ",vetor[i]," ")
+        }
+    }
+    funcao vazio inverteVetor(inteiro vetor[]) {
+        inteiro x = 0, reserva, fim = Util.numero_elementos(vetor) - 1       
+        enquanto ( x <  Util.numero_elementos(vetor)/2) {
+            reserva = vetor[x]
+            vetor[x] = vetor[(fim - x)] //x -> 0
+            vetor[fim-x] = reserva
+
+            x = x + 1
+        }   
+    }
+}

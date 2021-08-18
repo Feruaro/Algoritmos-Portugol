@@ -1,0 +1,38 @@
+programa{
+	
+	funcao inicio(){
+		
+		inteiro anoNasc, mesNasc, diaNasc
+		inteiro anoBase=2020, diaAtual=29, mesAtual=9
+		cadeia nome
+
+          	escreva("Qual seu nome?")
+          	leia(nome)
+		escreva("Qual ano você nasceu?")
+		leia(anoNasc)
+		escreva("Qual mês você nasceu? em número")
+		leia(mesNasc)
+		escreva("Qual dia você nasceu? em número")
+		leia(diaNasc)
+        	
+		/*  se (mesNasc > 9) {
+          		anoBase = anoBase - 1
+          	    } senao {
+               		se (mesNasc == 9) {
+                 		se (diaNasc > 29) {
+                 	 		anoBase = anoBase - 1
+                 		}
+              		}
+        	*/
+  
+          	se (mesNasc > mesAtual ou (mesNasc == mesAtual e diaNasc > diaAtual)) {
+          		anoBase = anoBase - 1
+          	}
+          	limpa()
+          	escreva (nome,", sua idade é:", anoBase - anoNasc, "!!")
+          
+          	se (mesNasc == mesAtual e diaNasc == diaAtual) {
+              		escreva("A propósito hoje é seu aniversário. Paranbéns!!!")
+          	}         	     
+	}
+}

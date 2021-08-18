@@ -1,0 +1,82 @@
+        programa {
+	
+	    funcao inicio() {
+		inteiro a = 0
+          	cadeia textoA = "", textoB = "", espaco = "         "    
+          	
+		// 10 linhas de copa (cada linha com número ímpar de "8", começando pelo 1)     	
+          	enquanto (a==0) {
+              	    escreva(espaco,textoA, "8", textoB, "\n")
+              	    a++
+                    textoA = textoA + "8"
+                    textoB = textoB + "8"         
+                    enquanto (a==1) {
+                        espaco = "        "
+                        escreva(espaco,textoA, "8", textoB, "\n")
+                        a++              
+                        textoA = textoA + "8"
+                        textoB = textoB + "8"    
+                        enquanto (a==2) {
+                            espaco = "       "
+                            escreva(espaco,textoA, "8", textoB, "\n")
+                            a++      
+                            textoA = textoA + "8"
+                            textoB = textoB + "8"            
+                            enquanto (a==3) {
+                                espaco = "      "
+                                escreva(espaco,textoA, "8", textoB, "\n")
+                                a++
+                                textoA = textoA + "8"
+                                textoB = textoB + "8"                
+                                enquanto (a==4) {
+                                    espaco = "     " 
+                                    escreva(espaco,textoA, "8", textoB, "\n")
+                                    a++                 
+                                    textoA = textoA + "8"
+                                    textoB = textoB + "8"                
+                                    enquanto (a==5) {
+                                        espaco = "    "
+                                        escreva(espaco,textoA, "8", textoB, "\n")
+                                        a++               
+                                        textoA = textoA + "8"
+                                        textoB = textoB + "8"                 
+                                        enquanto (a==6) {
+                                            espaco = "   "
+                                            escreva(espaco,textoA, "8", textoB, "\n")
+                                            a++                
+                                            textoA = textoA + "8"
+                                            textoB = textoB + "8"                
+                                            enquanto (a==7) {
+                                                espaco = "  "
+                                                escreva(espaco,textoA, "8", textoB, "\n")
+                                                a++                
+                                                textoA = textoA + "8"
+                                                textoB = textoB + "8"                
+                                                enquanto (a==8) {
+                                                    espaco = " "
+                                                    escreva(espaco,textoA, "8", textoB, "\n")
+                                                    a++              
+                                                    textoA = textoA + "8"
+                                                    textoB = textoB + "8"
+                                                    enquanto (a==9) {
+                                                        espaco = ""
+                                                        escreva(espaco,textoA, "8", textoB, "\n")
+                                                        a++                 
+                                                        textoA = textoA + "8"
+                                                        textoB = textoB + "8"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                   }                                                                                     
+               }
+               // 3 linhas de tronco (3"X" cada linha)
+               para(a=10;a<=12;a++){
+                   escreva("        XXX\n")       	
+               }                
+	   }	
+       }

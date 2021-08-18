@@ -1,0 +1,30 @@
+programa {
+
+    inclua biblioteca Util
+    
+    funcao inicio() {
+        inteiro numero[6], sorteio 
+		
+        para (inteiro x = 0; x < 6; x++) {
+            faca {
+                sorteio = Util.sorteia(1,60)
+	    } enquanto (jaExiste(sorteio, numero))
+	    numero[x] = sorteio
+	}
+	imprimeVetor(numero)
+    }
+    funcao logico jaExiste (inteiro numero, inteiro vetor[]) {
+        logico retorno = falso
+	para (inteiro i=0; i<Util.numero_elementos(vetor); i++) {
+	    se (vetor[i] == numero) {
+	        retorno = verdadeiro 
+	    }
+	} 
+	retorne retorno 		
+    }
+    funcao imprimeVetor (inteiro vetor[] ) {
+        para (inteiro i=0; i<Util.numero_elementos(vetor); i++) {
+	    escreva(vetor[i], " ")
+	}
+    }
+}

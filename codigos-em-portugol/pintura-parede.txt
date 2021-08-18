@@ -1,0 +1,66 @@
+programa {
+	
+    funcao inicio() {
+        /* Latinha = 0,9 l tinta cobre 6m² / R$ 15,00
+        Galão = 3,6 l tinta cobre 24m²  / R$ 35,00 
+        Lata = 18 l tinta cobre 120m²   / R$ 100,00 
+        Calcular a quantidade de tinta e total de valor para pintar um número determinado de cômodos com suas
+        áreas( larg e compr) e alturas informadas pelo usuário.
+        a quantidade de tinta de acordo com as embalagens possíveis e buscando o menor valor final, mesmo com sobra de tinta. */
+        
+        real larg, alt, comp, areaComodo = 0.0, areaParedeComp = 0.0, areaParedeLarg = 0.0, atp = 0.0
+	inteiro qntdComodos, qntdParede
+	real sobra = 0.0, valorLatinha = 15.00, valorGalao = 35.00, valorLata = 100.00, valorTinta = 0.0
+        cadeia textoTinta = ""
+		
+	escreva("Quantos cômodos gostaria de calcular?")
+	leia(qntdComodos)
+	limpa()	
+	qntdParede = qntdComodos * 4 		
+		
+	para(inteiro q = 1; q <= qntdComodos; q++) {
+	    escreva("CÔMODO ", q, "\n")
+	    escreva("Informe o comprimento em cm:")
+            leia(comp)		    
+            escreva("Informe a largura em cm:")
+	    leia(larg)	
+	    escreva("Informe a altura das paredes em cm:")
+	    leia(alt)
+	    limpa()
+            areaComodo = areaComodo + ((comp * larg)/ 10000)	
+            // calculo área da parede (base x altura - como está em cm é dividido por 10000)
+	    // área calculada de 1 parede de cada cômodo (depois vezes a quantidade de paredes)
+            atp = atp + (areaParedeComp + ((comp * alt / 10000) * 2)) + (areaParedeLarg + ((larg * alt / 10000) * 2))	                           				
+	} 
+              
+        se (atp>=0 e atp<=6) {
+            sobra = 6 - atp 
+            valorTinta = valorLatinha
+            textoTinta = "1 lata de 0,9 L"             	  
+        }senao {
+            se (atp>6 e atp<=12) {
+                sobra = 12 - atp
+              	valorTinta = valorLatinha * 2
+              	textoTinta = "2 latas de 0,9 L"
+            }
+	    se (atp>12 e atp<=24) {
+                sobra = 24 - atp
+              	valorTinta = valorGalao
+              	textoTinta = "1 lata de 3,6 L"
+            }
+            se (atp>24 e atp<=48) {
+                sobra = 48 - atp
+                valorTinta = valorGalao * 2
+              	textoTinta = "2 latas de 3,6 L"
+            }
+            se (atp>48 e atp<=120) {
+                sobra = 120 - atp
+              	valorTinta = valorLata * 2
+              	textoTinta = "1 lata de 18 L"
+            }
+        } 
+	escreva("Área Total a ser pintada: ", atp)
+	escreva("\nValor total tinta: ", valorTinta, "\nQuantidade de tinta: ", textoTinta)
+	escreva("\nQuantidade em m² que irá sobrar de tinta: ", sobra)		    		
+    }	
+}
