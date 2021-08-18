@@ -1,0 +1,49 @@
+
+programa{
+	
+	inclua biblioteca Util
+	inclua biblioteca Teclado
+	inclua biblioteca Graficos
+	
+	// Exercício: 1. Movimentar o algoritmo em todas as direção (acima, abaixo, ladoDireita, ladoEsquerdo)
+	// 2. Se ele (retangulo) chegar no final da tela ele não mova mais para nenhuma direção (tipo "fim de jogo") 
+	// Dica: Guardar a alt e larg, tela e elemento em variáveis / será bastante útil 	
+	
+	funcao inicio(){
+			
+		logico rodando = verdadeiro
+		inteiro y = 1 // controla cima e baixo 
+		inteiro x = 1 // controla esquerda e direita 
+		inteiro altura = 500, altRet = 70
+		inteiro largura = 700, largRet = 30
+		
+		Graficos.iniciar_modo_grafico(verdadeiro)
+		Graficos.definir_titulo_janela("Meu primeiro Programa Gráfico")
+		Graficos.definir_dimensoes_janela(largura, altura)
+		
+		enquanto (rodando) {
+			inteiro cor = Graficos.COR_AZUL
+			Graficos.definir_cor(cor)
+			Graficos.desenhar_retangulo(x, y, largRet, altRet, falso, verdadeiro)
+			Graficos.renderizar()
+			logico abaixo = Teclado.tecla_pressionada(Teclado.TECLA_SETA_ABAIXO)
+			logico acima = Teclado.tecla_pressionada(Teclado.TECLA_SETA_ACIMA)
+			logico direita = Teclado.tecla_pressionada(Teclado.TECLA_SETA_DIREITA)
+			logico esquerda = Teclado.tecla_pressionada(Teclado.TECLA_SETA_ESQUERDA)
+
+			se (abaixo e y < altura - altRet ) {
+				y = y + 1
+			}
+			se (acima e y > 0) {
+				y = y - 1 
+			}
+			se (direita e x < largura - largRet) {
+				x = x + 1 
+			}
+			se (esquerda e x > 0) {
+				x = x - 1 
+			}
+			
+		}
+	}
+}
