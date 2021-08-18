@@ -1,39 +1,32 @@
-programa {
+programa{
+    // algoritmo que mostre os primeiro 12 numeros primos a partir do numero informado
+    //um número natural é primo se ele é maior que 1 e é divisível apenas por si próprio e por 1
     
-    // algoritmo que mostre os primeiro 12 numeros primos a partir de um numero informado
-    
-    funcao inicio() {
+    funcao inicio(){
         
-        inteiro numero = 33333333, qtd = 0
+        inteiro num, qntd = 0
 
-        enquanto (qtd <= 3) {
-            se(testePrimo(numero) ) {
-                escreva(numero, " é um número primo.\n")
-                qtd = qtd + 1
-            } senao {
-                escreva(numero, " não é um número primo.")
-        }   
-        numero = numero + 1   
+        escreva("Informe um numero: ")
+        leia(num)
+        
+        enquanto (qntd < 12) {
+            se(testePrimo(num) ) {
+                escreva(num, " é um número primo.\n")
+                qntd++
+            }   
+            num++   
         }
+        
     }   
-    funcao logico testePrimo(inteiro num) {
-        inteiro d = 3
-           
+    funcao logico testePrimo(inteiro num) {           
         logico retorno = verdadeiro
-        //saber se é par
-        se (num % 2 == 0) {
-            se (num != 2) {
-                retorno = falso
-            }
-        } senao {
-            // se ímpar
-            enquanto ( d < num e retorno == verdadeiro) {
-                se(num % d == 0) {
-                    retorno = falso
-                }
-                d= d + 2
-            }
+
+        para(inteiro i=2; i<num; i++){
+        	se(num%i == 0){
+        		retorno = falso
+        	}
         }
+        
         retorne retorno
     }
 }
